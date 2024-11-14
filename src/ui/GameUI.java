@@ -28,5 +28,13 @@ public class GameUI {
             System.out.println(); // Pulando uma linha no final.
             mod++; // Incrementando a variável mod para controle do campo.
         }
+
+        for (int[] array : game) {
+            for (int node : array) {
+                System.out.print(node + " ");
+            }
+
+            System.out.println();
+        }
     }
 }
