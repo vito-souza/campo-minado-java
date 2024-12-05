@@ -1,5 +1,6 @@
 package game;
 
+import java.util.Collections;
 import java.util.Random;
 
 import ui.GameUI;
@@ -32,20 +33,15 @@ public class GameHandler {
         /** Quantidade de bombas dentro do jogo. */
         int bombs = 0;
 
-        // Preenchendo o jogo com números aleatórios:
-        for (int i = 0; i < game.length; i++) {
-            for (int j = 0; j < game[i].length; j++) {
-                // Se ainda não tiver 10 bombas:
-                if (bombs <= 10) {
-                    int node = random.nextInt(2);
-                    game[i][j] = node; // Atribuindo o valor de bomb.
+        // Continuar até que 10 bombas sejam posicionadas:
+        while (bombs < 10) {
+            int col = random.nextInt(8); // Coluna aleatória.
+            int lin = random.nextInt(10); // Linha aleatória.
 
-                    // Se for uma bomba:
-                    if (node == 1)
-                        bombs++; // Incrementando o contador de bombas.
-                } else {
-                    game[i][j] = 0; // É só grama!!
-                }
+            // Se a posição ainda não tiver bomba:
+            if (game[col][lin] == 0) {
+                game[col][lin] = 1; // Coloca a bomba.
+                bombs++; // Incrementa o contador.
             }
         }
 
