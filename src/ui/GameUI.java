@@ -15,15 +15,17 @@ public class GameUI {
         /** Variável utilizada para imprimir o campo de maneira cruzada. */
         int mod = 0, i = 0;
 
-        System.out.println("   A B C D E F G H I J"); // Posições eixo X.
+        System.out.println("  A B C D E F G H I J"); // Posições eixo X.
         for (int[] array : game) {
 
             System.out.print(i + " "); // Posições do eixo Y.
             for (int node : array) {
 
                 // Se o node possuir ou não uma bomba:
-                if (node == 0 || node == 1)
+                if (node == 0)
                     System.out.print((mod % 2 == 0) ? "🟩" : "🌳");
+                else if (node == 1)
+                    System.out.print("💣");
                 else
                     System.out.print("🚩"); // Usuário colocou uma bandeira.
 
