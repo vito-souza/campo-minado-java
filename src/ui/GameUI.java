@@ -26,7 +26,7 @@ public class GameUI {
 
         for (int[] array : game) {
 
-            System.out.print(line + " "); // Posições do eixo Y.
+            System.out.printf("%2d ", line);
             for (int node : array) {
 
                 // Se o node possuir ou não uma bomba:

@@ -45,8 +45,4 @@ public class SoundPlayer {
             e.printStackTrace();
         }
     }
-
-    public static void main(String[] args) {
-        playSound("ding.wav");
-    }
 }
