@@ -1,4 +1,4 @@
-package ui;
+package game.ui;
 
 /**
  * Responsável pela interface gráfica do jogo, exibindo o estado do campo minado

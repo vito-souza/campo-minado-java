@@ -3,7 +3,7 @@ package game;
 import java.util.Random;
 
 import enums.Difficulty;
-import ui.GameUI;
+import game.ui.GameUI;
 
 /**
  * Classe que trata os states do jogo.
