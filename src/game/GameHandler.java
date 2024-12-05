@@ -9,13 +9,16 @@ import ui.GameUI;
  */
 public class GameHandler {
 
+    /** Interface do jogo. */
+    private GameUI gameUi = new GameUI();
+
     /** Para gerar números aleatórios. */
     private Random random = new Random();
 
     /** Matriz que guarda o estado do jogo. */
-    private int[][] game = new int[8][10];
+    private int[][] game;
 
-    /** Quantidade de linhas e colunas no jogo. */
+    // Quantidade de linhas e colunas do jogo:
     private int rows;
     private int cols;
 
@@ -33,19 +36,6 @@ public class GameHandler {
      */
     public GameHandler(Difficulty difficulty) {
         setDifficulty(difficulty);
-    }
-
-    /**
-     * Método que inicia um novo jogo.
-     */
-    public void startGame() {
-        resetGame(); // Limpa o estado do jogo para garantir que começa do zero.
-
-        GameUI.renderGame(game);
-
-        // TODO: depois da primeira entrada do usuário, gera um tabuleiro.
-        generateGame();
-        GameUI.renderGame(game);
     }
 
     /**
@@ -71,7 +61,17 @@ public class GameHandler {
                 break;
         }
 
-        this.game = new int[rows][cols];
+        this.game = new int[rows][cols]; // Retorna um novo tabuleiro ajustado com a dificuldade.
+    }
+
+    /**
+     * Método que inicia um novo jogo.
+     */
+    public void startGame() {
+        resetGame(); // Limpa o estado do jogo para garantir que começa do zero.
+        gameUi.renderGame(game);
+
+        // TODO: depois da primeira entrada do usuário, gera um tabuleiro.
     }
 
     /**

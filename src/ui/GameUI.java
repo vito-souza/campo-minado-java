@@ -11,13 +11,13 @@ public class GameUI {
      * 
      * @param game Estado atual do jogo (posição das bombas e bandeiras).
      */
-    public static void renderGame(int[][] game) {
+    public void renderGame(int[][] game) {
         /** Variável utilizada para imprimir o campo de maneira cruzada. */
         int pattern = 0;
         int line = 0;
 
         // Gerar cabeçalhos dinamicamente:
-        System.out.print("   ");
+        System.out.print("    ");
         for (int col = 0; col < game[0].length; col++) {
             System.out.print((char) ('A' + col) + " ");
         }
