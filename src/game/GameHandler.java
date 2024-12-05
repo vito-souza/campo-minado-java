@@ -2,6 +2,7 @@ package game;
 
 import java.util.Random;
 
+import enums.Difficulty;
 import ui.GameUI;
 
 /**
@@ -24,11 +25,6 @@ public class GameHandler {
 
     /** Quantidade de bombas no jogo. */
     private int bombCount;
-
-    /** Enumeração para os níveis de dificuldade. */
-    public enum Difficulty {
-        EASY, MEDIUM, HARD
-    }
 
     /**
      * Construtor da classe, que permite definir o tamanho do campo de jogo e a
