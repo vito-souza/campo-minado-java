@@ -13,36 +13,37 @@ public class GameUI {
      */
     public static void renderGame(int[][] game) {
         /** Variável utilizada para imprimir o campo de maneira cruzada. */
-        int mod = 0, i = 0;
+        int pattern = 0;
+        int line = 0;
 
-        System.out.println("  A B C D E F G H I J"); // Posições eixo X.
+        // Gerar cabeçalhos dinamicamente:
+        System.out.print("   ");
+        for (int col = 0; col < game[0].length; col++) {
+            System.out.print((char) ('A' + col) + " ");
+        }
+
+        System.out.println(); // Nova linha após os cabeçalhos.
+
         for (int[] array : game) {
 
-            System.out.print(i + " "); // Posições do eixo Y.
+            System.out.print(line + " "); // Posições do eixo Y.
             for (int node : array) {
 
                 // Se o node possuir ou não uma bomba:
                 if (node == 0)
-                    System.out.print((mod % 2 == 0) ? "🟩" : "🌳");
+                    System.out.print((pattern % 2 == 0) ? "🟩" : "🌳");
                 else if (node == 1)
                     System.out.print("💣");
                 else
                     System.out.print("🚩"); // Usuário colocou uma bandeira.
 
-                mod++; // Incrementando a variável mod para controle do campo.
+                pattern++; // Incrementando a variável pattern para controle do campo.
             }
 
             System.out.println(); // Pulando uma linha no final.
-            mod++; // Incrementando a variável mod para controle do campo.
-            i++; // Linha.
+
+            pattern++; // Incrementando a variável mod para controle do campo.
+            line++; // Linha.
         }
-
-        // for (int[] array : game) {
-        // for (int node : array) {
-        // System.out.print(node + " ");
-        // }
-
-        // System.out.println();
-        // }
     }
 }
