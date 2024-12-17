@@ -5,39 +5,19 @@ import java.util.Random;
 import enums.Difficulty;
 import game.ui.GameUI;
 
-/**
- * Classe que trata os states do jogo.
- */
 public class GameHandler {
 
-    /** Interface do jogo. */
     private GameUI gameUi = new GameUI();
-
-    /** Para gerar números aleatórios. */
     private Random random = new Random();
-
-    /** Matriz que guarda o estado do jogo. */
     private int[][] game;
-
-    // Quantidade de linhas e colunas do jogo:
     private int rows;
     private int cols;
-
-    /** Quantidade de bombas no jogo. */
     private int bombCount;
 
-    /**
-     * Construtor da classe, que permite definir o tamanho do campo de jogo e a
-     * dificuldade.
-     */
     public GameHandler(Difficulty difficulty) {
         setDifficulty(difficulty);
     }
 
-    /**
-     * Método que define a dificuldade do jogo.
-     * Altera o tamanho do campo e o número de bombas com base no nível.
-     */
     private void setDifficulty(Difficulty difficulty) {
         switch (difficulty) {
             case EASY:
@@ -57,49 +37,31 @@ public class GameHandler {
                 break;
         }
 
-        this.game = new int[rows][cols]; // Retorna um novo tabuleiro ajustado com a dificuldade.
+        this.game = new int[rows][cols];
     }
 
-    /**
-     * Método que inicia um novo jogo.
-     */
     public void startGame() {
-        resetGame(); // Limpa o estado do jogo para garantir que começa do zero.
+        resetGame();
         gameUi.renderGame(game);
 
         // TODO: depois da primeira entrada do usuário, gera um tabuleiro.
     }
 
-    /**
-     * Método que gera um novo jogo aleatório.
-     * 
-     * @return Retorna um novo estado (matriz) aleatório para o jogo.
-     */
     public void generateGame() {
-        /** Quantidade de bombas dentro do jogo. */
         int bombs = 0;
 
-        // Continuar até que 10 bombas sejam posicionadas:
         while (bombs < bombCount) {
-            int row = random.nextInt(rows); // Coluna aleatória.
-            int col = random.nextInt(cols); // Linha aleatória.
+            int row = random.nextInt(rows);
+            int col = random.nextInt(cols);
 
-            // Se a posição ainda não tiver bomba:
             if (game[row][col] == 0) {
-                game[row][col] = 1; // Coloca a bomba.
-                bombs++; // Incrementa o contador.
+                game[row][col] = 1;
+                bombs++;
             }
         }
     }
 
-    /**
-     * Método que reseta a matriz do jogo, limpando o estado.
-     */
     private void resetGame() {
-        for (int i = 0; i < game.length; i++) {
-            for (int j = 0; j < game[i].length; j++) {
-                game[i][j] = 0; // Limpa todas as células, colocando 0.
-            }
-        }
+        game = new int[rows][cols];
     }
 }

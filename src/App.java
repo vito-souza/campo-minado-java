@@ -4,6 +4,6 @@ import game.GameHandler;
 public class App {
     public static void main(String[] args) {
         GameHandler game = new GameHandler(Difficulty.MEDIUM);
-        game.startGame(); // Iniciando o jogo.
+        game.startGame();
     }
 }
