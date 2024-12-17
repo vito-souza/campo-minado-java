@@ -3,11 +3,13 @@ package game;
 import java.util.Random;
 
 import enums.Difficulty;
+import game.sound.GameSoundtrack;
 import game.ui.GameUI;
 
 public class GameHandler {
 
-    private GameUI gameUi = new GameUI();
+    private GameUI ui = new GameUI();
+    private GameSoundtrack soundtrack = new GameSoundtrack();
     private Random random = new Random();
     private int[][] game;
     private int rows;
@@ -42,7 +44,7 @@ public class GameHandler {
 
     public void startGame() {
         resetGame();
-        gameUi.renderGame(game);
+        ui.renderGame(game);
 
         // TODO: depois da primeira entrada do usuário, gera um tabuleiro.
     }

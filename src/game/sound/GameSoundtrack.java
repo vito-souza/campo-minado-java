@@ -9,7 +9,7 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-public class SoundPlayer {
+public class GameSoundtrack {
 
     public static void playSound(String sound) {
         File file = new File("./src/resources/" + sound);
