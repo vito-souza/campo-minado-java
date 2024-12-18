@@ -4,7 +4,7 @@ public class GameUI {
 
     public void renderGame(int[][] game) {
         int pattern = 0;
-        int line = 0;
+        int line = 1;
 
         System.out.print("    ");
         for (int col = 0; col < game[0].length; col++) {

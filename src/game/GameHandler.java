@@ -3,13 +3,11 @@ package game;
 import java.util.Random;
 
 import enums.Difficulty;
-import game.sound.GameSoundtrack;
 import game.ui.GameUI;
 
 public class GameHandler {
 
     private GameUI ui = new GameUI();
-    private GameSoundtrack soundtrack = new GameSoundtrack();
     private Random random = new Random();
     private int[][] game;
     private int rows;
@@ -61,6 +59,30 @@ public class GameHandler {
                 bombs++;
             }
         }
+    }
+
+    public void getInput(String input) {
+        if (!isValidInput(input)) {
+            System.out.println("Entrada inválida! Tente novamente.");
+            return;
+        }
+
+        int column = input.charAt(0) - 'A';
+        int row = Integer.parseInt(input.substring(1)) - 1;
+
+        System.out.println("Coluna (índice): " + column);
+        System.out.println("Linha: " + row);
+    }
+
+    private boolean isValidInput(String input) {
+        if (input.length() < 2 || !Character.isLetter(input.charAt(0)) || !input.substring(1).matches("\\d+")) {
+            return false;
+        }
+
+        int column = input.charAt(0) - 'A';
+        int row = Integer.parseInt(input.substring(1)) - 1;
+
+        return column >= 0 && column < cols && row >= 0 && row < rows;
     }
 
     private void resetGame() {
