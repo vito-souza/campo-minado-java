@@ -22,8 +22,10 @@ public class GameUI {
                     System.out.print((pattern % 2 == 0) ? "🟩" : "🌳");
                 else if (node == 1)
                     System.out.print("💣");
-                else
+                else if (node == 2)
                     System.out.print("🚩");
+                else
+                    System.err.print("☐");
 
                 pattern++;
             }

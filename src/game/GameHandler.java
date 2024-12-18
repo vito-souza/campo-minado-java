@@ -43,8 +43,6 @@ public class GameHandler {
     public void startGame() {
         resetGame();
         ui.renderGame(game);
-
-        // TODO: depois da primeira entrada do usuário, gera um tabuleiro.
     }
 
     public void generateGame() {
@@ -62,6 +60,8 @@ public class GameHandler {
     }
 
     public void getInput(String input) {
+        input = input.toUpperCase();
+
         if (!isValidInput(input)) {
             System.out.println("Entrada inválida! Tente novamente.");
             return;
@@ -70,8 +70,11 @@ public class GameHandler {
         int column = input.charAt(0) - 'A';
         int row = Integer.parseInt(input.substring(1)) - 1;
 
-        System.out.println("Coluna (índice): " + column);
-        System.out.println("Linha: " + row);
+        game[row][column] = 3;
+
+        System.out.println();
+
+        ui.renderGame(game);
     }
 
     private boolean isValidInput(String input) {
